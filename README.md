@@ -46,7 +46,7 @@ class CarAdmin(admin.ModelAdmin):
 
 
 ## OUTPUT
-![alt text](<WhatsApp Image 2025-10-12 at 10.48.41 AM.jpeg>)
+![alt text](orm.jpg)
 
 Include the screenshot of your admin page.
 
