@@ -1,5 +1,5 @@
 # Ex02 Django ORM Web Application
-## Date: 08/10/2025
+## Date: 05.10.2025
 
 ## AIM
 To develop a Django application to store and retrieve data from a Car Inventory Database using Object Relational Mapping(ORM).
@@ -24,34 +24,31 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 ```
-
-admin.py
-
-from django.contrib import admin
-from .models import Employee,EmployeeAdmin
-admin.site.register(Employee,EmployeeAdmin)
-
-models.py
-
+model.py
 from django.db import models
 from django.contrib import admin
-class Employee(models.Model):
-    eid = models.CharField(max_length=20, help_text="Employee ID")
-    name = models.CharField(max_length=100)
-    salary = models.IntegerField()
-    age = models.IntegerField()
-    email = models.EmailField()
+class Car(models.Model):
+    car_name = models.CharField(max_length=255, help_text="Car Name")
+    car_model = models.CharField(max_length=100, help_text="Car Model")
+    registration_number = models.CharField(max_length=50, unique=True, help_text="Registration Number")
+    color = models.CharField(max_length=50, help_text="Car Color")
+    insurance = models.CharField(max_length=100, help_text="Insurance Details")
+    price = models.DecimalField(max_digits=10, decimal_places=2, help_text="Current Price in INR")
 
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ('eid', 'name', 'salary', 'age', 'email')
+class CarAdmin(admin.ModelAdmin):
+    list_display = ('car_name', 'car_model', 'registration_number', 'color', 'insurance','price')
 
-
+admin.py    
+                    
+from django.contrib import admin
+from .models import Car,CarAdmin
+admin.site.register(Car,CarAdmin)
 ```
+
+
 ## OUTPUT
 
-
-<img width="1920" height="1080" alt="Screenshot 2025-10-08 112221" src="https://github.com/user-attachments/assets/047c8881-2d61-4c9a-8e92-73c006f1c7d7" />
-
+<img width="1051" height="598" alt="Screenshot 2025-10-07 155628" src="https://github.com/user-attachments/assets/e97edbf8-0bee-49ef-9bc6-fd4407001ad5" />
 
 
 
